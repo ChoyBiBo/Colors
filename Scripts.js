@@ -24,7 +24,7 @@ fetch("https://api.prolook.com/api/colors/prolook")
             value["name"]+
         "</div>"+
         "<div class='col btnHolder'>"+
-        "<button  type='button' class='btn btn-primary ' value='"+value["hex_code"]+"' data='"+value["color_code"]+"'>preview</button>"+
+        "<button  type='button' class='btn btn-primary ' value='"+value["hex_code"]+"' data='"+value["color_code"]+"' name='"+value["name"]+"'>preview</button>"+
         "</div>"+
         "</div>"+
         "</li>"
@@ -43,15 +43,27 @@ fetch("https://api.prolook.com/api/colors/prolook")
 getColors();
 
 
+function invertHex(hex) {
+  var invColor = "#"+(Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase();
+  return invColor;
+}
+
 $(document).on('click','.btn',function(e){
     //alert(this.value);
     $("#innerDiv")[0].innerHTML = null
+    
     $("#previewHolder").css("background-color", "#"+this.value);
+    
+    
     $("#innerDiv").append(
-        "<p>Name: "+this.text+"</p>"+
-        "<p>Hex: #"+this.value+"</p>"+
-        "<p>Color Code: "+$("#"+e.target.id).attr("data")+"</p>"
+        "<p style=color:"+invertHex(this.value)+";>Name: "+this.getAttribute("name")+"</p>"+
+        "<p style=color:"+invertHex(this.value)+";>Hex: #"+this.value+"</p>"+
+        "<p style=color:"+invertHex(this.value)+";>Color Code: "+this.getAttribute("data")+"</p>"
     );
+
 });
+
+
+
 
     });
