@@ -1,3 +1,5 @@
+
+
 #colorListHolderDiv{
     max-height: 98vh !important;
     overflow-y: scroll !important;
@@ -29,4 +31,8 @@ li{
     display: flex;
     justify-content: right;
     align-items: flex-end;
+}
+
+p{
+    font-size: 20px;
 }
