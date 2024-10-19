@@ -1,0 +1,32 @@
+#colorListHolderDiv{
+    max-height: 98vh !important;
+    overflow-y: scroll !important;
+}
+
+#previewHolder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listItem{
+    padding:10px;
+    border:1px solid rgb(224, 222, 222);
+    border-radius: 10px;
+    margin-bottom:5px;
+    background-color: white;
+}
+
+li{
+    list-style-type: none;
+}
+
+#innerDiv p{
+    color:white;
+    margin: auto auto;
+}
+
+.btnHolder{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
